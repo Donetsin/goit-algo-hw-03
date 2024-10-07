@@ -30,6 +30,8 @@ def copy_files(src, dst):
             if item.is_file() and item.suffix:
                 p(dst/item.suffix[1:]).mkdir(parents=True, exist_ok=True)
                 shutil.copy(item, dst/item.suffix[1:]/item.name)
+            else:
+                copy_files(src/item, dst)
 
     except Exception as e:
         print(f"An error occurred during copy files: {e}")
