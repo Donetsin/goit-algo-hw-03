@@ -41,7 +41,7 @@ def main():
     args = parse_args()
     print(args.source, args.destination)
     if not args.destination:
-        args.destination = args.source / "_sorted"
+        args.destination = args.source / "dist"
     args.destination.mkdir(parents=True, exist_ok=True)
     copy_files(args.source, args.destination)
 
